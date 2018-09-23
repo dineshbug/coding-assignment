@@ -1,0 +1,8 @@
+<h3>Top 10 Profile with Most Followers</h3>
+
+<div *ngIf=showChart>
+<angular-d3-bar [id]="test2" [data]=barChartData [dataColumns]="dataColumns" [colors]="colors" [yAxisTicks]=5 [width]=1200
+[height]=450 [transitionDuration]=1000 [transitionDelay]=30 [barWidth]="'16px'"></angular-d3-bar>
+</div>
+
+<div id="tooltip"></div>

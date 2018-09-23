@@ -1,0 +1,18 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Name : {{usersProfileModel.login}}</mat-card-title>
+    <mat-card-subtitle>URL : {{usersProfileModel.repos_url}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="usersProfileModel.avatar_url" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <p>
+      Followers : {{usersProfileModel.followers}} | Following : {{usersProfileModel.following}}
+      <br>
+      Blog : <a href="{{usersProfileModel.blog}}">{{usersProfileModel.blog}}</a>
+    </p>
+  </mat-card-content>
+  <mat-card-actions style="text-align:center;">
+    <button mat-button (click)="back()">BACK</button>
+  </mat-card-actions>
+</mat-card>

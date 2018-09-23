@@ -1,0 +1,42 @@
+<h1>Search Users </h1>
+<form [formGroup]="userform">
+<div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid">
+  <div class="ui-grid-row" style="margin-top: 2em">
+    <div class="ui-grid-col-12">
+        <div class="ui-inputgroup">
+            <input matInput placeholder="Enter Name" formControlName="name" [(ngModel)]="userModel.name"/>
+        </div>
+    </div>
+  </div>
+  </div>
+
+  <button mat-button (click)="search()">Search</button>
+
+  <br><br>
+  <div *ngIf=showLabel>
+    <label>Total Numbers of Users are {{totalCount}}</label>
+  </div>
+<br><br>
+  <div *ngIf=showLabel>
+      <div class="example-container mat-elevation-z8">
+          <mat-table #table [dataSource]="dataSource">
+        
+            <!-- Name Column -->
+            <ng-container matColumnDef="login">
+              <mat-header-cell *matHeaderCellDef> <b>Name</b> </mat-header-cell>
+              <mat-cell *matCellDef="let element"> <a (click)="viewUser(element.login)">{{element.login}}</a> </mat-cell>
+                <!-- href="https://api.github.com/users/{{element.login}}" -->
+            </ng-container>
+        
+            <!-- Weight Column -->
+            <ng-container matColumnDef="score">
+              <mat-header-cell *matHeaderCellDef> <b>Score</b> </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.score}} </mat-cell>
+            </ng-container>
+        
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+        </div>
+      </div>
+</form>
